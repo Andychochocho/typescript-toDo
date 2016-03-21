@@ -21,4 +21,19 @@ module ToDoList{
     "thor": thor,
     "loki": loki,
   };
+
+  $(document).ready(function(){
+    var allTasks = ToDoList.listAllTasksofType("WorkTask", tasks);
+    $('#inputTasks').html("Here are all the tasks for Work: ");
+    for(var task of allTasks) {
+      console.log("what the fuck");
+      $('#output').append(task);
+    }
+    var lowPriority = ToDoList.listLowPrioritiesofTasks("Low", tasks);
+
+    $('#inputLowPriority').html("Here are all the low priority tasks: ");
+    for(var task of lowPriority) {
+      $('#lowPriority').append(task);
+    }
+  });
 }

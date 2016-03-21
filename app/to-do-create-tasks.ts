@@ -24,9 +24,4 @@ tasks.push(new ToDoList.WorkTask(tomorrow, "Save the world.", "High", people.tho
 tasks.push(new ToDoList.WorkTask(tomorrow, "Buy a new shirt.", "Low", people.thor));
 tasks.push(new ToDoList.WorkTask(nextDay, "Clean ceiling.", "Low", people.loki));
 
-console.log(tasks);
-var thorTasks = ToDoList.describeTasksForPerson(people.thor, tasks);
-console.log("Here are Thor's tasks: ");
-for(var task of thorTasks) {
-  console.log(task);
-}
+// console.log(tasks);

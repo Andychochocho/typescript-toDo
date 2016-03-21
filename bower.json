@@ -1,0 +1,23 @@
+{
+  "name": "todolist",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "andrew <cho-andrew@hotmail.com>",
+    "michael <mail.michaeldada@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6"
+  }
+}

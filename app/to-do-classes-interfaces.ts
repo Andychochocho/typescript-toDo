@@ -1,4 +1,12 @@
 module ToDoList {
+  export class Task implements ITask {
+    done: boolean = false;
+    constructor(public description: string, public priority: string, public assignedTo?: IPerson) {}
+    markDone() {
+      this.done = true;
+    }
+  }
+
   export interface ITask {
     description: string;
     done: boolean;
@@ -11,14 +19,6 @@ module ToDoList {
     name: string;
     email: string;
     phone?: string;
-  }
-
-  export class Task implements ITask {
-    done: boolean = false;
-    constructor(public description: string, public priority: string, public assignedTo?: IPerson) {}
-    markDone() {
-      this.done = true;
-    }
   }
 
   export class HomeTask extends Task {

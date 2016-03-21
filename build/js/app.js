@@ -72,6 +72,21 @@ var ToDoList;
         "thor": thor,
         "loki": loki
     };
+    $(document).ready(function () {
+        var allTasks = ToDoList.listAllTasksofType("WorkTask", tasks);
+        $('#inputTasks').html("Here are all the tasks for Work: ");
+        for (var _i = 0, allTasks_1 = allTasks; _i < allTasks_1.length; _i++) {
+            var task = allTasks_1[_i];
+            console.log("what the fuck");
+            $('#output').append(task);
+        }
+        var lowPriority = ToDoList.listLowPrioritiesofTasks("Low", tasks);
+        $('#inputLowPriority').html("Here are all the low priority tasks: ");
+        for (var _a = 0, lowPriority_1 = lowPriority; _a < lowPriority_1.length; _a++) {
+            var task = lowPriority_1[_a];
+            $('#lowPriority').append(task);
+        }
+    });
 })(ToDoList || (ToDoList = {}));
 /// <reference path="to-do-classes-interfaces.ts" />
 var ToDoList;
@@ -81,6 +96,34 @@ var ToDoList;
         for (var _i = 0, taskCollection_1 = taskCollection; _i < taskCollection_1.length; _i++) {
             var task = taskCollection_1[_i];
             if (task.assignedTo === assignee) {
+                descriptions.push(task.description);
+            }
+        }
+        return descriptions;
+    };
+    ToDoList.listAllTasks = function (taskCollection) {
+        var descriptions = [];
+        for (var _i = 0, taskCollection_2 = taskCollection; _i < taskCollection_2.length; _i++) {
+            var task = taskCollection_2[_i];
+            descriptions.push(task.description);
+        }
+        return descriptions;
+    };
+    ToDoList.listAllTasksofType = function (type, taskCollection) {
+        var descriptions = [];
+        for (var _i = 0, taskCollection_3 = taskCollection; _i < taskCollection_3.length; _i++) {
+            var task = taskCollection_3[_i];
+            if (task.constructor.name === type) {
+                descriptions.push(task.description);
+            }
+        }
+        return descriptions;
+    };
+    ToDoList.listLowPrioritiesofTasks = function (type, taskCollection) {
+        var descriptions = [];
+        for (var _i = 0, taskCollection_4 = taskCollection; _i < taskCollection_4.length; _i++) {
+            var task = taskCollection_4[_i];
+            if (task.priority === type) {
                 descriptions.push(task.description);
             }
         }
@@ -107,10 +150,4 @@ tasks.push(new ToDoList.WorkTask(tomorrow, "Go to meeting.", "Medium", people.th
 tasks.push(new ToDoList.WorkTask(tomorrow, "Save the world.", "High", people.thor));
 tasks.push(new ToDoList.WorkTask(tomorrow, "Buy a new shirt.", "Low", people.thor));
 tasks.push(new ToDoList.WorkTask(nextDay, "Clean ceiling.", "Low", people.loki));
-console.log(tasks);
-var thorTasks = ToDoList.describeTasksForPerson(people.thor, tasks);
-console.log("Here are Thor's tasks: ");
-for (var _i = 0, thorTasks_1 = thorTasks; _i < thorTasks_1.length; _i++) {
-    var task = thorTasks_1[_i];
-    console.log(task);
-}
+// console.log(tasks);
